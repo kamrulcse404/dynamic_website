@@ -43,10 +43,6 @@
 
                     <div class="p-3">
 
-
-
-
-
                         <form class="form-horizontal mt-3" method="POST" action="{{ route('login') }}">
                             @csrf
 
@@ -89,10 +85,6 @@
                                 </div>
                             </div>
                         </form>
-
-
-
-
 
                     </div>
                     <!-- end -->
