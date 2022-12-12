@@ -13,7 +13,7 @@
 
                                 @if (count($errors))
                                     @foreach ($errors->all() as $error)
-                                    <p class="alert alert-danger alert-dismissible fade show">{{ $error }}</p>
+                                        <p class="alert alert-danger alert-dismissible fade show"> {{ $error }} </p>
                                     @endforeach
                                 @endif
 
