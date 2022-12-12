@@ -9,7 +9,8 @@
                     <div class="card">
                         <div class="card-body">
 
-                            <form action="">
+                            <form action="{{ route('store.profile') }}" method="POST" enctype="multipart/form-data">
+                                @csrf
                                 <h4 class="card-title">Edit Profile</h4>
 
                                 <div class="row mb-3">
