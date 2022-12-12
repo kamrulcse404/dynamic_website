@@ -19,6 +19,9 @@
     <!-- App Css-->
     <link href="{{ asset('backend/assets/css/app.min.css') }}" id="app-style" rel="stylesheet" type="text/css" />
 
+    <!-- Toaster Css-->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
+
 </head>
 
 <body class="auth-body-bg">
@@ -49,20 +52,22 @@
 
                             <div class="form-group mb-3 row">
                                 <div class="col-12">
-                                    <input class="form-control" id="username" name="username" type="text" required="" placeholder="Username">
+                                    <input class="form-control" id="username" name="username" type="text"
+                                        required="" placeholder="Username">
                                 </div>
                             </div>
 
                             <div class="form-group mb-3 row">
                                 <div class="col-12">
-                                    <input class="form-control" id="password" name="password" type="password" required="" placeholder="Password">
+                                    <input class="form-control" id="password" name="password" type="password"
+                                        required="" placeholder="Password">
                                 </div>
                             </div>
 
                             <div class="form-group mb-3 row">
                                 <div class="col-12">
                                     <div class="custom-control custom-checkbox">
-                                        
+
                                     </div>
                                 </div>
                             </div>
@@ -76,7 +81,8 @@
 
                             <div class="form-group mb-0 row mt-2">
                                 <div class="col-sm-7 mt-3">
-                                    <a href="{{ route('password.request') }}" class="text-muted"><i class="mdi mdi-lock"></i> Forgot
+                                    <a href="{{ route('password.request') }}" class="text-muted"><i
+                                            class="mdi mdi-lock"></i> Forgot
                                         your password?</a>
                                 </div>
                                 <div class="col-sm-5 mt-3">
@@ -103,8 +109,34 @@
     <script src="{{ asset('backend/assets/libs/metismenu/metisMenu.min.js') }}"></script>
     <script src="{{ asset('backend/assets/libs/simplebar/simplebar.min.js') }}"></script>
     <script src="{{ asset('backend/assets/libs/node-waves/waves.min.js') }}"></script>
-
+    
     <script src="{{ asset('backend/assets/js/app.js') }}"></script>
+    
+    <!-- JAVASCRIPT toaster -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+    <script>
+        @if (Session::has('message'))
+            var type = "{{ Session::get('alert-type', 'info') }}"
+            switch (type) {
+                case 'info':
+                    toastr.info(" {{ Session::get('message') }} ");
+                    break;
+
+                case 'success':
+                    toastr.success(" {{ Session::get('message') }} ");
+                    break;
+
+                case 'warning':
+                    toastr.warning(" {{ Session::get('message') }} ");
+                    break;
+
+                case 'error':
+                    toastr.error(" {{ Session::get('message') }} ");
+                    break;
+            }
+        @endif
+    </script>
 
 </body>
 
